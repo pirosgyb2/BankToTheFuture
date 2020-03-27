@@ -22,23 +22,23 @@
 
     <include layout="@layout/content_qr" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+    <com.dlazaro66.qrcodereaderview.QRCodeReaderView
+        android:id="@+id/qrdecoderview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-    <ImageView
-        android:id="@+id/ivPhoto"
-        android:layout_width="50dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="10dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/coins_3"
-        app:layout_constraintBottom_toBottomOf="@id/moneyContainer"
-        app:layout_constraintLeft_toLeftOf="@id/moneyContainer"
-        app:layout_constraintTop_toTopOf="@id/moneyContainer" />
+
+    <TextView
+        android:background="#55000000"
+        android:id="@+id/result_text_view"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:padding="16dp"
+        android:textSize="14sp"
+        android:textColor="#ffffff"
+        />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
