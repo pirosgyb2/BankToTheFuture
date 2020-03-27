@@ -1,10 +1,14 @@
 package com.bme.aut.banktothefuture
 
+import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
+import com.livinglifetechway.quickpermissions.annotations.WithPermissions
 
 import kotlinx.android.synthetic.main.activity_qr.*
 
@@ -22,6 +26,9 @@ class QrActivity : AppCompatActivity() {
         }
     }
 
+    @WithPermissions(
+        permissions = [Manifest.permission.CAMERA]
+    )
     private fun takePhoto() {
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also {
                 takePhotoIntent ->
@@ -31,4 +38,13 @@ class QrActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("MissingSuperCall")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == 1001 && resultCode == RESULT_OK) {
+            data?.also {
+                val imageBitmap = it.extras?.get("data") as Bitmap
+                ivPhoto.setImageBitmap(imageBitmap)
+            }
+        }
+    }
 }

@@ -30,4 +30,15 @@
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_dialog_email" />
 
+    <ImageView
+        android:id="@+id/ivPhoto"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/coins_3"
+        app:layout_constraintBottom_toBottomOf="@id/moneyContainer"
+        app:layout_constraintLeft_toLeftOf="@id/moneyContainer"
+        app:layout_constraintTop_toTopOf="@id/moneyContainer" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
