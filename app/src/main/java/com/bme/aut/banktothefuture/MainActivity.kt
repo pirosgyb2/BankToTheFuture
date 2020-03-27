@@ -1,10 +1,13 @@
 package com.bme.aut.banktothefuture
 
 import android.animation.ObjectAnimator
+import android.content.Intent
 import android.os.Bundle
 import android.util.DisplayMetrics
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_qr.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,6 +26,10 @@ class MainActivity : AppCompatActivity() {
 
         init()
 
+        camera.setOnClickListener {
+            val myIntent = Intent(this, QrActivity::class.java)
+            startActivity(myIntent)
+        }
     }
 
     override fun onResume() {
