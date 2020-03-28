@@ -148,4 +148,32 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias=".7" />
 
+    <ImageView
+        android:id="@+id/robotGuidelineLeft"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginRight="130dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/robotGuidelineTop"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginBottom="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView
+        android:id="@+id/robot"
+        android:layout_width="150dp"
+        android:layout_height="180dp"
+        android:rotation="340"
+        android:scaleType="fitXY"
+        android:src="@drawable/robot_with_hands"
+        app:layout_constraintLeft_toRightOf="@id/robotGuidelineLeft"
+        app:layout_constraintTop_toBottomOf="@id/robotGuidelineTop" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
