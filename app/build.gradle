@@ -53,4 +53,7 @@ dependencies {
 
     //for firebase
     implementation 'com.google.firebase:firebase-auth:19.3.0'
+
+    //shimmer style
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 }

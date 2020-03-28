@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">BankToTheFuture</string>
     <string name="title_activity_qr">QrActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
 </resources>
