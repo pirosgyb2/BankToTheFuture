@@ -11,4 +11,6 @@
 
     <color name="mapBackgroundTop">#486eaf</color>
     <color name="mapBackgroundBottom">#9375a5</color>
+
+    <color name="transparent">#00000000</color>
 </resources>

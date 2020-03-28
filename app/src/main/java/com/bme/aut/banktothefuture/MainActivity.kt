@@ -1,17 +1,23 @@
 package com.bme.aut.banktothefuture
 
 import android.animation.ObjectAnimator
+import android.os.Build
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.view.View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+import android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    var screenHeight = 0
-    var actualFloor = 2
-    var topFloorNumber = 2
-    var bottomFloowNumber = 0
+    private var screenHeight = 0
+    private var statusBarHeight: Int = 0
+
+    private var actualFloor = 0
+    private var topFloorNumber = 2
+    private var bottomFloowNumber = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,13 +33,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-
-        floor0?.let {
-            rootScrollView?.smoothScrollTo(0, it.top)
-        }
+        setTransaparentStatusbar()
     }
 
     private fun init() {
+
+        rootScrollView?.post { rootScrollView?.smoothScrollTo(0, 5000) }
+
         val params0 = floor0?.layoutParams
         params0?.height = screenHeight
         floor0?.setLayoutParams(params0)
@@ -80,5 +86,19 @@ class MainActivity : AppCompatActivity() {
 
     private fun scrollTo(positionToScroll: Int) {
         ObjectAnimator.ofInt(rootScrollView, "scrollY", positionToScroll).setDuration(600L).start();
+    }
+
+    private fun setTransaparentStatusbar() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            rootConstraintLayout?.systemUiVisibility =
+                SYSTEM_UI_FLAG_LAYOUT_STABLE or SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+
+            ViewCompat.setOnApplyWindowInsetsListener(rootConstraintLayout) { view, insets ->
+                setStatusbarColor(color = R.color.transparent)
+                statusBarHeight = insets.systemWindowInsetTop
+                topgap?.setSizeExt(height = statusBarHeight)
+                insets.consumeSystemWindowInsets()
+            }
+        }
     }
 }

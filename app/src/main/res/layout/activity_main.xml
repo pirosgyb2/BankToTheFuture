@@ -2,10 +2,19 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/map_background_gradient"
     tools:context=".MainActivity">
+
+    <View
+        android:id="@+id/topgap"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.bme.aut.banktothefuture.UnscrollableScrollView
         android:id="@+id/rootScrollView"
@@ -51,7 +60,7 @@
         android:src="@drawable/coin_container_background"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="@id/guideline"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/topgap" />
 
     <View
         android:id="@+id/guideline"
@@ -110,7 +119,7 @@
         android:tint="@color/colorWhite"
         app:backgroundTint="@color/colorGreyMid"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/topgap" />
 
     <ImageView
         android:id="@+id/up"
