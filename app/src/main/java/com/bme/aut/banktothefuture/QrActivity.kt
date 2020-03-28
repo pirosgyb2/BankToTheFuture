@@ -10,18 +10,20 @@ import com.dlazaro66.qrcodereaderview.QRCodeReaderView
 import kotlinx.android.synthetic.main.activity_qr.*
 
 class QrActivity : AppCompatActivity(), QRCodeReaderView.OnQRCodeReadListener {
-    private val resultTextView: TextView ?= null
-    private val qrCodeReaderView:QRCodeReaderView ?= null
+    private val resultTextView: TextView? = null
+    private val qrCodeReaderView: QRCodeReaderView? = null
 
-    override fun onQRCodeRead(text:String?, points: Array<out PointF>?) {
+    override fun onQRCodeRead(text: String?, points: Array<out PointF>?) {
         resultTextView?.text = text
         val myIntent = Intent(this, MainActivity::class.java)
         startActivity(myIntent)
     }
+
     override fun onResume() {
         super.onResume()
         qrCodeReaderView?.startCamera()
     }
+
     override fun onPause() {
         super.onPause()
         qrCodeReaderView?.stopCamera()

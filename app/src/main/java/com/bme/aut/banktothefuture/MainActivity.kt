@@ -1,6 +1,9 @@
 package com.bme.aut.banktothefuture
 
+import android.Manifest
 import android.animation.ObjectAnimator
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.DisplayMetrics
@@ -9,10 +12,8 @@ import android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.snackbar.Snackbar
 import com.livinglifetechway.quickpermissions.annotations.WithPermissions
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_qr.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -105,18 +106,6 @@ class MainActivity : AppCompatActivity() {
         ObjectAnimator.ofInt(rootScrollView, "scrollY", positionToScroll).setDuration(600L).start();
     }
 
-    //--------get camera permission
-
-    @WithPermissions(
-        permissions = [Manifest.permission.CAMERA]
-    )
-    private fun getCameraPermission() {
-        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also {
-                takePhotoIntent ->
-            takePhotoIntent.resolveActivity(packageManager)
-        }
-    }
-
     private fun setTransaparentStatusbar() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             rootConstraintLayout?.systemUiVisibility =
@@ -128,6 +117,17 @@ class MainActivity : AppCompatActivity() {
                 topgap?.setSizeExt(height = statusBarHeight)
                 insets.consumeSystemWindowInsets()
             }
+        }
+    }
+
+    //--------get camera permission
+
+    @WithPermissions(
+        permissions = [Manifest.permission.CAMERA]
+    )
+    private fun getCameraPermission() {
+        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePhotoIntent ->
+            takePhotoIntent.resolveActivity(packageManager)
         }
     }
 }
