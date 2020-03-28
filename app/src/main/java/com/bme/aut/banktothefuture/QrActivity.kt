@@ -2,14 +2,18 @@ package com.bme.aut.banktothefuture
 
 import android.content.Intent
 import android.graphics.PointF
+import android.os.Build
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
 import com.dlazaro66.qrcodereaderview.QRCodeReaderView
-
 import kotlinx.android.synthetic.main.activity_qr.*
 
 class QrActivity : AppCompatActivity(), QRCodeReaderView.OnQRCodeReadListener {
+    private var statusBarHeight = 0
+
     private val resultTextView: TextView? = null
     private val qrCodeReaderView: QRCodeReaderView? = null
 
@@ -21,6 +25,7 @@ class QrActivity : AppCompatActivity(), QRCodeReaderView.OnQRCodeReadListener {
 
     override fun onResume() {
         super.onResume()
+        setTransaparentStatusbar()
         qrCodeReaderView?.startCamera()
     }
 
@@ -32,7 +37,6 @@ class QrActivity : AppCompatActivity(), QRCodeReaderView.OnQRCodeReadListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_qr)
-        setSupportActionBar(toolbar)
 
         val qrCodeReaderView = findViewById<QRCodeReaderView>(R.id.qrdecoderview)
         qrCodeReaderView.setOnQRCodeReadListener(this)
@@ -46,5 +50,18 @@ class QrActivity : AppCompatActivity(), QRCodeReaderView.OnQRCodeReadListener {
         qrCodeReaderView.setFrontCamera()
         // Use this function to set back camera preview
         qrCodeReaderView.setBackCamera()
+    }
+
+    private fun setTransaparentStatusbar() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            rootCoordinatorLayout?.systemUiVisibility =
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+
+            ViewCompat.setOnApplyWindowInsetsListener(rootCoordinatorLayout) { view, insets ->
+                setStatusbarColor(color = R.color.transparent)
+                statusBarHeight = insets.systemWindowInsetTop
+                insets.consumeSystemWindowInsets()
+            }
+        }
     }
 }

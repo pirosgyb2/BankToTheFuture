@@ -33,7 +33,7 @@ fun View?.setSizeExt(height: Int? = null, width: Int? = null) {
     }
 }
 
-fun AppCompatActivity?.setStatusbarColor(color: Int) {
+fun AppCompatActivity?.setStatusbarColor(color: Int, withDarkText: Boolean = false) {
     this?.let {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             val window = it.window
@@ -41,7 +41,9 @@ fun AppCompatActivity?.setStatusbarColor(color: Int) {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
 
-            // window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            if (withDarkText) {
+                window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            }
 
             window.statusBarColor = ContextCompat.getColor(it, color)
         }

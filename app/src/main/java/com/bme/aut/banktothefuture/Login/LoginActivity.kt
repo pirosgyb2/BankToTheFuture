@@ -1,17 +1,21 @@
 package com.bme.aut.banktothefuture.Login
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
+import android.view.View
+import androidx.core.view.ViewCompat
 import com.bme.aut.banktothefuture.MainActivity
 import com.bme.aut.banktothefuture.R
+import com.bme.aut.banktothefuture.setSizeExt
+import com.bme.aut.banktothefuture.setStatusbarColor
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
-
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : BaseActivity() {
+    private var statusBarHeight = 0
+
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +28,12 @@ class LoginActivity : BaseActivity() {
         btnLogin.setOnClickListener { loginClick() }
 
     }
+
+    override fun onResume() {
+        super.onResume()
+        setTransaparentStatusbar()
+    }
+
 
     private fun validateForm() = etEmail.validateNonEmpty() && etPassword.validateNonEmpty()
 
@@ -76,4 +86,18 @@ class LoginActivity : BaseActivity() {
             }
     }
 
+
+    private fun setTransaparentStatusbar() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            loginTopView?.systemUiVisibility =
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+
+            ViewCompat.setOnApplyWindowInsetsListener(loginTopView) { view, insets ->
+                setStatusbarColor(color = R.color.transparent, withDarkText = true)
+                statusBarHeight = insets.systemWindowInsetTop
+                loginTopView?.setSizeExt(height = statusBarHeight)
+                insets.consumeSystemWindowInsets()
+            }
+        }
+    }
 }
