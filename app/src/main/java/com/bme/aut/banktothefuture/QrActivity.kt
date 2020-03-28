@@ -1,14 +1,11 @@
 package com.bme.aut.banktothefuture
 
-import android.Manifest
 import android.content.Intent
 import android.graphics.PointF
 import android.os.Bundle
-import android.provider.MediaStore
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.dlazaro66.qrcodereaderview.QRCodeReaderView
-import com.livinglifetechway.quickpermissions.annotations.WithPermissions
 
 import kotlinx.android.synthetic.main.activity_qr.*
 
@@ -35,8 +32,6 @@ class QrActivity : AppCompatActivity(), QRCodeReaderView.OnQRCodeReadListener {
         setContentView(R.layout.activity_qr)
         setSupportActionBar(toolbar)
 
-        getCameraPermission()
-
         val qrCodeReaderView = findViewById<QRCodeReaderView>(R.id.qrdecoderview)
         qrCodeReaderView.setOnQRCodeReadListener(this)
         // Use this function to enable/disable decoding
@@ -49,15 +44,5 @@ class QrActivity : AppCompatActivity(), QRCodeReaderView.OnQRCodeReadListener {
         qrCodeReaderView.setFrontCamera()
         // Use this function to set back camera preview
         qrCodeReaderView.setBackCamera()
-    }
-
-    @WithPermissions(
-        permissions = [Manifest.permission.CAMERA]
-    )
-    private fun getCameraPermission() {
-        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also {
-                takePhotoIntent ->
-            takePhotoIntent.resolveActivity(packageManager)
-        }
     }
 }

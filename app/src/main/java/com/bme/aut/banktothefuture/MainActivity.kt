@@ -1,11 +1,14 @@
 package com.bme.aut.banktothefuture
 
+import android.Manifest
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.DisplayMetrics
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
+import com.livinglifetechway.quickpermissions.annotations.WithPermissions
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_qr.*
 
@@ -30,6 +33,8 @@ class MainActivity : AppCompatActivity() {
             val myIntent = Intent(this, QrActivity::class.java)
             startActivity(myIntent)
         }
+
+        getCameraPermission()
     }
 
     override fun onResume() {
@@ -87,5 +92,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun scrollTo(positionToScroll: Int) {
         ObjectAnimator.ofInt(rootScrollView, "scrollY", positionToScroll).setDuration(600L).start();
+    }
+
+    //--------get camera permission
+
+    @WithPermissions(
+        permissions = [Manifest.permission.CAMERA]
+    )
+    private fun getCameraPermission() {
+        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also {
+                takePhotoIntent ->
+            takePhotoIntent.resolveActivity(packageManager)
+        }
     }
 }
