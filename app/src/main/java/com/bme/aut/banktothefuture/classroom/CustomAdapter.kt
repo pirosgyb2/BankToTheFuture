@@ -26,5 +26,4 @@ class CustomAdapter(val studentList: ArrayList<Student>): RecyclerView.Adapter<C
         val tvTitle = itemView.findViewById<TextView>(R.id.tvTitle)
         val tvAmount = itemView.findViewById<TextView>(R.id.tvAmount)
     }
-
 }

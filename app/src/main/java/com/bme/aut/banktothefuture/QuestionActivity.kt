@@ -45,40 +45,40 @@ class QuestionActivity : AppCompatActivity() {
         when (questionNumber) {
             1 -> {
                 question?.text =
-                    "sdkfsdfks sldkjs ldf lskfj dlsjf sdlf lskdfj sldfkj  sldfjsldfjsldkfjl kslfdkj sldf sldfkj lsdfj slk  ?"
-                answerA.setup("A", "Egy almafa")
-                answerB.setup("B", "Két kiskutya")
-                answerC.setup("C", "Három katica")
-                answerD.setup("D", "Ennyi lába van")
+                    "Melyik uralkodónkhoz/fejedelemhez kötődik az a pénzfajta, amit közel 200 évig használtak a Közel-Keleten? És mi ez a pénztípus?"
+                answerA.setup("A", "Mária Terézia, Tallér")
+                answerB.setup("B", "Károly Róbert, Aranyforint")
+                answerC.setup("C", "Hunyadi Mátyás, Ezüstdénár")
+                answerD.setup("D", "II. Rákóczi Ferenc, Poltura")
             }
 
             2 -> {
 
                 question?.text =
-                    "sdkfsdfks sldkjs ldf lskfj dlsjf sdlf lskdfj sldfkj  sldfjsldfjsldkfjl kslfdkj sldf sldfkj lsdfj slk  ?"
-                answerA.setup("A", "Egy almafa")
-                answerB.setup("B", "Két kiskutya")
-                answerC.setup("C", "Három katica")
-                answerD.setup("D", "Ennyi lába van")
+                    "Melyik uralkodónkhoz/fejedelemhez kötődik az a pénzfajta, amit közel 200 évig használtak a Közel-Keleten? És mi ez a pénztípus?"
+                answerA.setup("A", "Mária Terézia, Tallér")
+                answerB.setup("B", "Károly Róbert, Aranyforint")
+                answerC.setup("C", "Hunyadi Mátyás, Ezüstdénár")
+                answerD.setup("D", "II. Rákóczi Ferenc, Poltura")
             }
 
             3 -> {
 
                 question?.text =
-                    "sdkfsdfks sldkjs ldf lskfj dlsjf sdlf lskdfj sldfkj  sldfjsldfjsldkfjl kslfdkj sldf sldfkj lsdfj slk  ?"
-                answerA.setup("A", "Egy almafa")
-                answerB.setup("B", "Két kiskutya")
-                answerC.setup("C", "Három katica")
-                answerD.setup("D", "Ennyi lába van")
+                    "Melyik uralkodónkhoz/fejedelemhez kötődik az a pénzfajta, amit közel 200 évig használtak a Közel-Keleten? És mi ez a pénztípus?"
+                answerA.setup("A", "Mária Terézia, Tallér")
+                answerB.setup("B", "Károly Róbert, Aranyforint")
+                answerC.setup("C", "Hunyadi Mátyás, Ezüstdénár")
+                answerD.setup("D", "II. Rákóczi Ferenc, Poltura")
             }
             else -> {
 
                 question?.text =
-                    "sdkfsdfks sldkjs ldf lskfj dlsjf sdlf lskdfj sldfkj  sldfjsldfjsldkfjl kslfdkj sldf sldfkj lsdfj slk  ?"
-                answerA.setup("A", "Egy almafa")
-                answerB.setup("B", "Két kiskutya")
-                answerC.setup("C", "Három katica")
-                answerD.setup("D", "Ennyi lába van")
+                    "Melyik uralkodónkhoz/fejedelemhez kötődik az a pénzfajta, amit közel 200 évig használtak a Közel-Keleten? És mi ez a pénztípus?"
+                answerA.setup("A", "Mária Terézia, Tallér")
+                answerB.setup("B", "Károly Róbert, Aranyforint")
+                answerC.setup("C", "Hunyadi Mátyás, Ezüstdénár")
+                answerD.setup("D", "II. Rákóczi Ferenc, Poltura")
             }
         }
     }

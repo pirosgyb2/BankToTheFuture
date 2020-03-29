@@ -55,5 +55,16 @@
         android:layout_marginBottom="54dp"
         android:src="@drawable/robot_with_hands" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gratulálok, helyes a válasz!"
+        android:textColor="@color/cink"
+        android:padding="20dp"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        />
+
 
 </RelativeLayout>

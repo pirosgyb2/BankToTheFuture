@@ -5,6 +5,7 @@ import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.provider.MediaStore
 import android.util.DisplayMetrics
 import android.view.View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
@@ -12,8 +13,11 @@ import android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import com.bme.aut.banktothefuture.classroom.ClassActivity
+import com.getkeepsafe.taptargetview.TapTarget
+import com.getkeepsafe.taptargetview.TapTargetView
 import com.livinglifetechway.quickpermissions.annotations.WithPermissions
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,6 +54,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         getCameraPermission()
+
+        if(isFirstTime()){
+            tapTargetView()
+        }
     }
 
     override fun onResume() {
@@ -150,5 +158,34 @@ class MainActivity : AppCompatActivity() {
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePhotoIntent ->
             takePhotoIntent.resolveActivity(packageManager)
         }
+    }
+
+    private fun tapTargetView(){
+        TapTargetView.showFor(this, TapTarget.forView(camera,
+            "Ez egy segítség",
+            "Keresd meg az állomáson a QR kódot és olvasd be!").
+            tintTarget(false).
+            targetRadius(50).
+            descriptionTextColor(R.color.darkBlue).
+            titleTextColor(R.color.darkBlue).
+            targetCircleColor(R.color.colorGreyMid).
+            cancelable(false),
+            object : TapTargetView.Listener() {
+                override fun onTargetClick(view: TapTargetView) {
+                    super.onTargetClick(view)
+                    view.dismiss(true)
+                }
+            })
+    }
+    fun isFirstTime():Boolean{
+        var firstTime = true
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        if(sharedPreferences.getString("ID", null) == null) {
+            firstTime = true
+            sharedPreferences.edit().putString("ID", UUID.randomUUID().toString()).apply()
+        } else {
+            firstTime = false
+        }
+        return firstTime
     }
 }
