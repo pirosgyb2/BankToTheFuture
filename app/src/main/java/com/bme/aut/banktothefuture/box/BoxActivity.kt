@@ -4,12 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.bme.aut.banktothefuture.MainActivity
 import com.bme.aut.banktothefuture.R
-
-import kotlinx.android.synthetic.main.activity_box.*
 
 class BoxActivity : AppCompatActivity(), OnMessageFragmentAnswer {
 
@@ -30,28 +27,24 @@ class BoxActivity : AppCompatActivity(), OnMessageFragmentAnswer {
         val boxBtn2 = findViewById<View>(R.id.box2) as ImageView
         val boxBtn3 = findViewById<View>(R.id.box3) as ImageView
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
 
         boxBtn1.setOnClickListener {
             createDialog("500")
-            sendingMoneyToMainActivity("500")
+            sendingMoneyToMainActivity(500)
         }
 
         boxBtn2.setOnClickListener {
             createDialog("400")
-            sendingMoneyToMainActivity("400")
+            sendingMoneyToMainActivity(400)
         }
 
         boxBtn3.setOnClickListener {
             createDialog("10")
-            sendingMoneyToMainActivity("10")
+            sendingMoneyToMainActivity(10)
         }
     }
 
-    private fun createDialog(string: String){
+    private fun createDialog(string: String) {
         val messageFragment = MessageFragment()
         messageFragment.isCancelable = false
 
@@ -59,13 +52,15 @@ class BoxActivity : AppCompatActivity(), OnMessageFragmentAnswer {
         bundle.putString(KEY_MSG, "$string pengőt nyertél!")
         messageFragment.arguments = bundle
 
-        messageFragment.show(supportFragmentManager,
-            "MessageFragment")
+        messageFragment.show(
+            supportFragmentManager,
+            "MessageFragment"
+        )
     }
 
-    private fun sendingMoneyToMainActivity(string: String){
+    private fun sendingMoneyToMainActivity(money: Int) {
+        MainActivity.money += money
         val i = Intent(this@BoxActivity, MainActivity::class.java)
-        i.putExtra("MONEY_AMOUNT", string)
         //startActivity(i)
     }
 }

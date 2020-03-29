@@ -55,17 +55,5 @@
         android:layout_marginBottom="54dp"
         android:src="@drawable/robot_with_hands" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom|start"
-        android:layout_marginStart="@dimen/fab_margin"
-        android:layout_marginTop="@dimen/fab_margin"
-        android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginBottom="27dp"
-        android:background="@color/colorPrimaryDark"
-        app:srcCompat="@android:drawable/ic_menu_revert" />
 
 </RelativeLayout>
