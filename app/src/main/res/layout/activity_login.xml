@@ -50,7 +50,7 @@
                     android:layout_gravity="center_vertical"
                     android:padding="10dip"
                     android:text="Pénzmúzeum és látogató központ"
-                    android:textColor="@color/cardview_dark_background"
+                    android:textColor="@color/colorWhite"
                     android:textSize="19dip"
                     android:textStyle="italic" />
             </com.facebook.shimmer.ShimmerFrameLayout>
