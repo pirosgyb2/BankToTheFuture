@@ -11,6 +11,7 @@ import android.view.View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
 import android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
+import com.bme.aut.banktothefuture.classroom.ClassActivity
 import com.livinglifetechway.quickpermissions.annotations.WithPermissions
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -40,6 +41,11 @@ class MainActivity : AppCompatActivity() {
 
         camera.setOnClickListener {
             val myIntent = Intent(this, QrActivity::class.java)
+            startActivity(myIntent)
+        }
+
+        students.setOnClickListener {
+            val myIntent = Intent(this, ClassActivity::class.java)
             startActivity(myIntent)
         }
 

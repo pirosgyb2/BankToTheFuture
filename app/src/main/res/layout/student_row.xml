@@ -9,32 +9,28 @@
 
     <androidx.cardview.widget.CardView
         app:cardCornerRadius="20dp"
-        app:contentPadding="10dp"
-        android:background="@drawable/map_background_gradient"
         app:cardBackgroundColor="@color/transparent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dip"
-        android:paddingBottom="10dip"
-        android:outlineAmbientShadowColor="@color/colorGreyDark"
-        android:outlineSpotShadowColor="@color/darkBlue">
+        android:paddingBottom="10dip">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:showDividers="beginning"
-            android:divider="@color/colorAccent"
-            android:padding="10dp"
-            android:paddingBottom="20dp"
+            android:divider="@color/colorWhite"
+            android:padding="5dp"
+            android:paddingBottom="5dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/tvTitle"
-                android:layout_width="213dp"
-                android:layout_height="43dp"
+                android:layout_width="97dp"
+                android:layout_height="75dp"
                 android:text="Title"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:textColor="@color/darkBlue"
+                android:textColor="@color/colorWhite"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,9 +40,10 @@
                 android:layout_height="50dp"
                 android:text="Amount"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/darkBlue"
-                app:layout_constraintStart_toStartOf="@+id/tvTitle"
-                app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+                android:textColor="@color/colorWhite"
+                app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
+                app:layout_constraintStart_toEndOf="@+id/tvTitle"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/imageView"
@@ -63,6 +60,7 @@
                 android:layout_height="66dp"
                 android:layout_marginTop="40dp"
                 app:layout_constraintStart_toEndOf="@+id/tvAmount"
+                app:layout_constraintStart_toStartOf="@+id/tvAmount"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/coins_2" />
 
