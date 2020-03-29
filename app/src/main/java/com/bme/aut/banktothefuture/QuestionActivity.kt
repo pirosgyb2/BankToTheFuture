@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bme.aut.banktothefuture.box.BoxActivity
 import kotlinx.android.synthetic.main.activity_question.*
 
+
 class QuestionActivity : AppCompatActivity() {
 
     var questionNumber = 0
@@ -34,7 +35,11 @@ class QuestionActivity : AppCompatActivity() {
     private fun init() {
         setStatusbarColor(R.color.colorGreyMid)
         backIcon?.setOnClickListener {
-            onBackPressed()
+            val intent =
+                Intent(this, MainActivity::class.java)
+            intent.flags =
+                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(intent)
         }
 
         when (questionNumber) {

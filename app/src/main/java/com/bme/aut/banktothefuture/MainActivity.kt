@@ -76,6 +76,16 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, QuestionActivity::class.java)
             startActivity(intent)
         }
+
+        arrow?.setOnClickListener {
+            val intent = Intent(this, ArrowsActivity::class.java)
+            startActivity(intent)
+        }
+
+        gifts?.setOnClickListener {
+            val intent = Intent(this, GiftsActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 
