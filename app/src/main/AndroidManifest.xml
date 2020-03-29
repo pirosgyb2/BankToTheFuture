@@ -34,7 +34,9 @@
             android:name=".QrActivity"
             android:label="@string/title_activity_qr"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity">
+
+        </activity>
         <activity android:name=".QuestionActivity" />
         <activity android:name=".GiftsActivity" />
         <activity android:name=".ArrowsActivity" />

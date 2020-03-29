@@ -4,4 +4,5 @@
         android:startColor="@color/mapBackgroundTop"
         android:endColor="@color/mapBackgroundBottom"
         android:angle="225"/>
+
 </shape>

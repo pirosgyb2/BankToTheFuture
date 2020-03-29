@@ -3,6 +3,8 @@ package com.bme.aut.banktothefuture.box
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.bme.aut.banktothefuture.MainActivity
@@ -21,6 +23,10 @@ class BoxActivity : AppCompatActivity(), OnMessageFragmentAnswer {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        requestWindowFeature( Window.FEATURE_NO_TITLE )
+
+        getWindow().setFlags( WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN )
         setContentView(R.layout.activity_box)
 
         val boxBtn1 = findViewById<View>(R.id.box1) as ImageView
