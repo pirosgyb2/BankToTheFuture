@@ -58,7 +58,7 @@ class QrActivity : AppCompatActivity(), QRCodeReaderView.OnQRCodeReadListener {
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
 
             ViewCompat.setOnApplyWindowInsetsListener(rootCoordinatorLayout) { view, insets ->
-                setStatusbarColor(color = R.color.transparent)
+                setStatusbarColor(color = R.color.transparentGrey)
                 statusBarHeight = insets.systemWindowInsetTop
                 insets.consumeSystemWindowInsets()
             }
