@@ -71,6 +71,11 @@ class MainActivity : AppCompatActivity() {
 
         up.setOnClickListener { scrollUp() }
         down.setOnClickListener { scrollDown() }
+
+        robot?.setOnClickListener {
+            val intent = Intent(this, QuestionActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 

@@ -148,7 +148,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias=".7" />
 
-    <ImageView
+    <View
         android:id="@+id/robotGuidelineLeft"
         android:layout_width="1dp"
         android:layout_height="0dp"
@@ -157,7 +157,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <View
         android:id="@+id/robotGuidelineTop"
         android:layout_width="0dp"
         android:layout_height="1dp"

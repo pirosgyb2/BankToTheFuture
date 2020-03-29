@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#486eaf</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimaryDark">#565656</color>
+    <color name="colorAccent">@color/cink</color>
+
+    <color name="red">#DD1616</color>
+    <color name="purple">#9375a5</color>
+    <color name="lightGrey">#E7E7E7</color>
+    <color name="cink">#2fba85</color>
 
     <color name="colorWhite">#fefefe</color>
 
@@ -12,5 +17,8 @@
     <color name="mapBackgroundTop">#486eaf</color>
     <color name="mapBackgroundBottom">#9375a5</color>
 
+    <color name="darkBlue">#3A588F</color>
+    <color name="darkPurple">#6E577C</color>
     <color name="transparent">#00000000</color>
+    <color name="transparentGrey">#7E292828</color>
 </resources>
