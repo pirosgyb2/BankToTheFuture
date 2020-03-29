@@ -37,6 +37,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity" />
         <activity android:name=".QuestionActivity" />
+        <activity android:name=".GiftsActivity" />
+        <activity android:name=".ArrowsActivity" />
     </application>
 
 </manifest>

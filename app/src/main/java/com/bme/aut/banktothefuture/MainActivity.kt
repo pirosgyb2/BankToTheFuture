@@ -11,13 +11,14 @@ import android.view.View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
 import android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
-import androidx.lifecycle.ViewModelProvider
 import com.livinglifetechway.quickpermissions.annotations.WithPermissions
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: MainViewModel
+    companion object {
+        var money = 500
+    }
 
     private var screenHeight = 0
     private var statusBarHeight: Int = 0
@@ -48,11 +49,10 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         setTransaparentStatusbar()
+        moneyCountTextView?.text = money.toString()
     }
 
     private fun init() {
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        moneyCountTextView?.text = viewModel.money.toString()
 
         val params0 = floor0?.layoutParams
         params0?.height = screenHeight
@@ -74,6 +74,16 @@ class MainActivity : AppCompatActivity() {
 
         robot?.setOnClickListener {
             val intent = Intent(this, QuestionActivity::class.java)
+            startActivity(intent)
+        }
+
+        arrow?.setOnClickListener {
+            val intent = Intent(this, ArrowsActivity::class.java)
+            startActivity(intent)
+        }
+
+        gifts?.setOnClickListener {
+            val intent = Intent(this, GiftsActivity::class.java)
             startActivity(intent)
         }
     }
