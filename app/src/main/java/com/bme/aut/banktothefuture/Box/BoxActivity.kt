@@ -26,50 +26,46 @@ class BoxActivity : AppCompatActivity(), OnMessageFragmentAnswer {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_box)
 
+        val boxBtn1 = findViewById<View>(R.id.box1) as ImageView
+        val boxBtn2 = findViewById<View>(R.id.box2) as ImageView
+        val boxBtn3 = findViewById<View>(R.id.box3) as ImageView
+
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
 
-        val boxBtn1 = findViewById<View>(R.id.box1) as ImageView
         boxBtn1.setOnClickListener {
-
-            val messageFragment = MessageFragment()
-            messageFragment.isCancelable = false
-
-            val bundle = Bundle()
-            bundle.putString(KEY_MSG, "500 aranypénzt nyertél!")
-            messageFragment.arguments = bundle
-
-            messageFragment.show(supportFragmentManager,
-                "MessageFragment")
+            createDialog("500")
+            sendingMoneyToMainActivity("500")
         }
 
-        val boxBtn2 = findViewById<View>(R.id.box2) as ImageView
         boxBtn2.setOnClickListener {
-            val messageFragment = MessageFragment()
-            messageFragment.isCancelable = false
-
-            val bundle = Bundle()
-            bundle.putString(KEY_MSG, "300 aranypénzt nyertél!")
-            messageFragment.arguments = bundle
-
-            messageFragment.show(supportFragmentManager,
-                "MessageFragment")
+            createDialog("400")
+            sendingMoneyToMainActivity("400")
         }
 
-        val boxBtn3 = findViewById<View>(R.id.box3) as ImageView
         boxBtn3.setOnClickListener {
-            val messageFragment = MessageFragment()
-            messageFragment.isCancelable = false
-
-            val bundle = Bundle()
-            bundle.putString(KEY_MSG, "10 aranypénzt nyertél!")
-            messageFragment.arguments = bundle
-
-            messageFragment.show(supportFragmentManager,
-                "MessageFragment")
+            createDialog("10")
+            sendingMoneyToMainActivity("10")
         }
     }
 
+    private fun createDialog(string: String){
+        val messageFragment = MessageFragment()
+        messageFragment.isCancelable = false
+
+        val bundle = Bundle()
+        bundle.putString(KEY_MSG, "$string aranypénzt nyertél!")
+        messageFragment.arguments = bundle
+
+        messageFragment.show(supportFragmentManager,
+            "MessageFragment")
+    }
+
+    private fun sendingMoneyToMainActivity(string: String){
+        val i = Intent(this@BoxActivity, MainActivity::class.java)
+        i.putExtra("MONEY_AMOUNT", string)
+        //startActivity(i)
+    }
 }

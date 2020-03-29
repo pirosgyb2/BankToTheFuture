@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.DisplayMetrics
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.livinglifetechway.quickpermissions.annotations.WithPermissions
@@ -32,6 +33,15 @@ class MainActivity : AppCompatActivity() {
         camera.setOnClickListener {
             val myIntent = Intent(this, QrActivity::class.java)
             startActivity(myIntent)
+        }
+
+        gifts.setOnClickListener {
+            val extras = intent.extras
+
+            if (extras != null) {
+                val money = extras.getString("MONEY_AMOUNT")
+                Toast.makeText(this, money,Toast.LENGTH_SHORT).show()
+            }
         }
 
         getCameraPermission()
