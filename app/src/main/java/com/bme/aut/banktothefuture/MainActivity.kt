@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
         down.setOnClickListener { scrollDown() }
 
         robot?.setOnClickListener {
-            val intent = Intent(this, QuestionActivity::class.java)
+            val intent = Intent(this, RobotHelpActivity::class.java)
             startActivity(intent)
         }
 
