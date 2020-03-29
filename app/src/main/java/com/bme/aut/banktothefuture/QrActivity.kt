@@ -19,7 +19,9 @@ class QrActivity : AppCompatActivity(), QRCodeReaderView.OnQRCodeReadListener {
 
     override fun onQRCodeRead(text: String?, points: Array<out PointF>?) {
         resultTextView?.text = text
-        val myIntent = Intent(this, MainActivity::class.java)
+        val myIntent = Intent(this, QuestionActivity::class.java).apply {
+            putExtra("questionNumber", text)
+        }
         startActivity(myIntent)
     }
 
