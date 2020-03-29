@@ -93,7 +93,7 @@ class LoginActivity : BaseActivity() {
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
 
             ViewCompat.setOnApplyWindowInsetsListener(loginTopView) { view, insets ->
-                setStatusbarColor(color = R.color.transparent, withDarkText = true)
+                setStatusbarColor(color = R.color.transparent)
                 statusBarHeight = insets.systemWindowInsetTop
                 loginTopView?.setSizeExt(height = statusBarHeight)
                 insets.consumeSystemWindowInsets()

@@ -25,6 +25,7 @@ class QuestionActivity : AppCompatActivity() {
     }
 
     private fun init() {
+        setStatusbarColor(R.color.colorGreyMid)
         backIcon?.setOnClickListener {
             onBackPressed()
         }

@@ -41,9 +41,12 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_marginBottom="40dp"
-        android:background="@color/transparentGrey"
+        android:background="@drawable/qr_scan_text_background"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:text="Szkenneld be a feladat QR-kódját!"
         android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"

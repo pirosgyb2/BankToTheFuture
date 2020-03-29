@@ -6,8 +6,9 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorControlHighlight">@color/colorGreyDark
+        <item name="colorControlHighlight">@color/colorAccent
         </item>    <!-- Color of ripple effect -->
+        <item name="android:textColorHint">@color/colorWhite</item>
 
     </style>
 
