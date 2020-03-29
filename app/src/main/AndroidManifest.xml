@@ -13,17 +13,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".box.BoxActivity"
-            android:label="@string/title_activity_box"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".Login.LoginActivity"
+            android:name=".classroom.ClassActivity"
+            android:label="@string/title_activity_class"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter android:label="@string/app_name">
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".box.BoxActivity"
+            android:label="@string/title_activity_box"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Login.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
         </activity>
         <activity
             android:name=".QrActivity"
